@@ -194,6 +194,7 @@ double calcoloSingolo() {
 
 double runApp() {
 	double scelta;
+	cout << endl;
 	cout << "Calcola i risultati singolarmente: (inserisci -1 se vuoi saltare, 0 se vuoi continuare)" << endl;
 	cin >> scelta;
 
@@ -201,6 +202,7 @@ double runApp() {
 		calcoloSingolo();
 	};
 
+	cout << endl;
 	cout << "Confronto tra i risultati: (inserisci -1 se vuoi saltare, 0 se vuoi continuare)" << endl;
 	cin >> scelta;
 	if(scelta == 0) {
