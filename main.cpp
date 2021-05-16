@@ -5,10 +5,12 @@
 
 using namespace std;
 
+// Definizione della funzione integranda
 double f(double x){
 	return (2 * x * x) / ((x * x) + 4);
 }      
 
+// Metodo del punto centrale
 double puntoCentrale(double a, double b) {
 	double centrale, area;
 	centrale = (a + b) /2;
@@ -16,6 +18,7 @@ double puntoCentrale(double a, double b) {
 	return area;
 }
 
+// Metodo dei rettangoli
 double rettangoli(double a, double b, int n){
 	double x, sum, h;
 	int j;
@@ -29,6 +32,7 @@ double rettangoli(double a, double b, int n){
 	return sum;
 }
 
+// Metodo dei trapezi
 double trapezi(double a, double b, int n){
 	double x, sum, h;
 	int j;
@@ -42,6 +46,7 @@ double trapezi(double a, double b, int n){
 	return sum * (h / 2);
 }
 
+// Metodo di Cavalieri-Simpson
 double cavalieriSimpson(double a, double b, int n){
 	double h, s, sum, x;
 	int j;
@@ -56,12 +61,15 @@ double cavalieriSimpson(double a, double b, int n){
 	return sum * (h / 6);
 }
 
+// Funzione che confronta i risultati collettivamente
 void confronto(){
 
 	const char separator = ' '; // Separatore tre caselle
   const int wordWidth = 18; // Larghezza di ogni casella contente una stringa (testo)
 	const int width = 18; // Larghezza di ogni casella contente un numero (int/double)
 	
+	// Confronto 1:
+	// Inserimento estremi e intervalli
 	double a, b, risultato; 
 	int n;
 	cout << endl;
@@ -84,7 +92,7 @@ void confronto(){
   cout << left << setw(wordWidth) << setfill(separator) << "Cavalieri-Simpson";
   cout << endl;
 
-
+	// Stampa tabella
 	for(int i = 0; i < n; i++){
 		cout << left << setw(width) << setfill(separator) << i + 1;
 		cout << left << setw(width) << setfill(separator) << puntoCentrale(a, b);
@@ -94,9 +102,10 @@ void confronto(){
 		cout << endl;
 	}
 
+	// Confronto 2:
 	cout << "---------------------------------" << endl;
 	cout << "Confronto con iterazioni logaritmiche" << endl;
-	int confrontoLog[9] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000};
+	int confrontoLog[9] = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000}; // Definizione intervalli
 
 	// Header della tabella
   cout << "I risultati sono:" << endl;
@@ -107,7 +116,7 @@ void confronto(){
   cout << left << setw(wordWidth) << setfill(separator) << "Cavalieri-Simpson";
   cout << endl;
 
-
+	// Stampa risultati
 	for(int i = 0; i < 9; i++){
 		cout << left << setw(width) << setfill(separator) << confrontoLog[i];
 		cout << left << setw(width) << setfill(separator) << puntoCentrale(a, b);
@@ -117,9 +126,10 @@ void confronto(){
 		cout << endl;
 	}
 
+	// confronto 3:
 	cout << "---------------------------------" << endl;
 	cout << "Confronto con iterazioni intermedie" << endl;
-	int confrontoIntermedio[13] = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100};
+	int confrontoIntermedio[13] = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100}; // Definizione intervalli
 
 	// Header della tabella
   cout << "I risultati sono:" << endl;
@@ -130,7 +140,7 @@ void confronto(){
   cout << left << setw(wordWidth) << setfill(separator) << "Cavalieri-Simpson";
   cout << endl;
 
-
+	// Stampa risultati
 	for(int i = 0; i < 13; i++){
 		cout << left << setw(width) << setfill(separator) << confrontoIntermedio[i];
 		cout << left << setw(width) << setfill(separator) << puntoCentrale(a, b);
@@ -141,6 +151,7 @@ void confronto(){
 	}
 }
 
+// Calcolo individuale dei risultati
 double calcoloSingolo() {
 	
 	double a, b;
@@ -216,6 +227,8 @@ double calcoloSingolo() {
 }
 
 double runApp() {
+
+	// Scelta se effettuare o meno il calcolo singolo
 	double scelta;
 	cout << endl;
 	cout << "Calcola i risultati singolarmente: (inserisci -1 se vuoi saltare, 0 se vuoi continuare)" << endl;
@@ -225,6 +238,7 @@ double runApp() {
 		calcoloSingolo();
 	};
 
+	// Scelta se effettuare o meno il confronto
 	cout << endl;
 	cout << "Confronto tra i risultati: (inserisci -1 se vuoi saltare, 0 se vuoi continuare)" << endl;
 	cin >> scelta;
