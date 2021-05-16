@@ -56,7 +56,7 @@ double cavalieriSimpson(double a, double b, int n){
 	return sum * (h / 6);
 }
 
-double confronto(){
+void confronto(){
 
 	const char separator = ' '; // Separatore tre caselle
   const int wordWidth = 18; // Larghezza di ogni casella contente una stringa (testo)
@@ -114,6 +114,29 @@ double confronto(){
 		cout << left << setw(width) << setfill(separator) << rettangoli(a, b, confrontoLog[i]);
 		cout << left << setw(width) << setfill(separator) << trapezi(a, b, confrontoLog[i]);
 		cout << left << setw(width) << setfill(separator) << cavalieriSimpson(a, b, confrontoLog[i]);
+		cout << endl;
+	}
+
+	cout << "---------------------------------" << endl;
+	cout << "Confronto con iterazioni intermedie" << endl;
+	int confrontoIntermedio[13] = {1, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100};
+
+	// Header della tabella
+  cout << "I risultati sono:" << endl;
+  cout << left << setw(wordWidth) << setfill(separator) << "Intervalli"; // Iterazioni svolte
+  cout << left << setw(wordWidth) << setfill(separator) << "Punto Centrale"; // Math.sqrt()
+  cout << left << setw(wordWidth) << setfill(separator) << "Rettangoli"; // Algortimmo Babilonese
+  cout << left << setw(wordWidth) << setfill(separator) << "Trapezi"; // Algoritmo Errore
+  cout << left << setw(wordWidth) << setfill(separator) << "Cavalieri-Simpson";
+  cout << endl;
+
+
+	for(int i = 0; i < 13; i++){
+		cout << left << setw(width) << setfill(separator) << confrontoIntermedio[i];
+		cout << left << setw(width) << setfill(separator) << puntoCentrale(a, b);
+		cout << left << setw(width) << setfill(separator) << rettangoli(a, b, confrontoIntermedio[i]);
+		cout << left << setw(width) << setfill(separator) << trapezi(a, b, confrontoIntermedio[i]);
+		cout << left << setw(width) << setfill(separator) << cavalieriSimpson(a, b, confrontoIntermedio[i]);
 		cout << endl;
 	}
 }
