@@ -28,11 +28,14 @@ double f(double t){
 // Metodo di Cavalieri-Simpson
 double cavalieriSimpson(double a, double b, int n){
 	double h, s, sum, x;
-	int j;
-	h = (b - a) / n;
+  double aInX, bInX;
+  aInX = a * c;
+  bInX = b * c;
+  int j;
+	h = (bInX - aInX) / n;
 	s = h / 2;
-	sum = f(a) + f(b) + 4 * f(a + s);
-	x = a + h;
+	sum = f(aInX) + f(bInX) + 4 * f(aInX + s);
+	x = aInX + h;
 	for(j = 1; j < n; j++){
 		sum = sum + 2 * f(x) + 4 * f(x + s);
 		x += h;
