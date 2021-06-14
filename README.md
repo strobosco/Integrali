@@ -5,8 +5,12 @@ Il progetto fornisce il codice esibito nell'elaborato interdisciplinare di infor
 ## Struttura
 
 ```
-- main.cpp // File contenente il codice
-- README.md // File descrittivo
++-- elaborato
+|  |
+|  | - main.cpp // file contente il codice utilizzato nell'elaborato finale
+|  
+|- main.cpp // File contenente il codice di tutti i metodi
+|- README.md // File descrittivo
 ```
 
 ## Funzioni
@@ -28,4 +32,4 @@ La funzione confronto() ha il ruolo di stampare una tabella ordinata sul termina
 La funzione calcoloSingolo() permette invece di calcolare i valori singolarmente. Per ogni metodo verranno chiesti gli estremi di integrazione e, se il metodo lo richiede, il numero di intervalli necessari.
 
 ## Come usare
-Per poter usare il programma è necessario essere in possesso di un compilatore C++. Poiché il codice non deve essere modificato in alcun modo è sufficiente compilarlo a un formato eseguibile (.exe) che potrà poi essere usato direttamente dal prompt di comandi (".\main.exe"). Caricare file eseguibili su piattaforme come GitHub o GitLab è sconsigliabile e, a volte, non concesso per motivi di sicurezza giacché tutti i file passano attraverso i server e file eseguibili potrebbero, se uno intende, provocare danni gravi.
+Per poter usare il programma è necessario essere in possesso di un compilatore C++. Poiché il codice non deve essere modificato in alcun modo è sufficiente compilarlo a un formato eseguibile (.exe) che potrà poi essere usato direttamente dal prompt di comandi (".\main.exe"). Il file .exe non è stato caricato perché caricare file eseguibili su piattaforme come GitHub o GitLab è sconsigliabile e, a volte, non concesso per motivi di sicurezza giacché tutti i file passano attraverso i server e file eseguibili potrebbero provocare danni gravi.
